@@ -11,14 +11,17 @@ function runtime.str_to_function(str)
 end
 
 function runtime.run_code(code)
-    io.stdout = io.open('stdout.temp', 'w+')
+    io.stdout = io.open('stdout.temp', 'w+');
     if(type(code) == "nil") then --Error in code
+        io.stdout:close()
         return nil;
     end
     local aux = code();
     if(type(aux) == "nil") then
+        io.stdout:close()
         return true;
     end
+    io.stdout:close()
     return aux;
 end
 

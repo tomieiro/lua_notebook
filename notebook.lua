@@ -8,7 +8,14 @@ function RunCallback(_, args)
     local command = args[1]:value();
     local response = runtime.run_code(runtime.str_to_function(command));
     --Colocar um assert
-    if(not(type(response) == "nil" or type(response) == "boolean")) then
+    if(string.find(command,"print")) then
+        widget:textcolor(fl.YELLOW);
+        local file = io.open("stdout.temp","r+");
+        local buffer = file:read("*a");
+        print(buffer)
+        widget:value(buffer);
+        file:close();
+    elseif(not(type(response) == "nil" or type(response) == "boolean")) then
         widget:textcolor(fl.GREEN);
         widget:value(response);
     else
@@ -36,6 +43,7 @@ function Gui()
     code = fl.input(60, 130+count, 1115, 25); --Codigo group_n = 2
     group:add(code);
     output = fl.output(60, 130+count+25, 1115, 25); --Saida group_n = 3
+    output:color(fl.DARK2);
     group:add(output);
     runButton = fl.button(1195, 130+count, 90, 25, "Run"); --Botao group_n = 4
     runButton:callback(RunCallback,{group:child(2),group:child(3)});
