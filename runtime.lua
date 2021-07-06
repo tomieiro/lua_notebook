@@ -4,6 +4,7 @@ function runtime.str_to_function(str)
     local aux = string.find(str,")");
     if(string.find(str,"function") and aux) then
         str = string.sub(str,aux+1,#str-3);
+        print(str)
     end
     str = string.gsub(str,"print","io.stdout:write");
     return load(str);
