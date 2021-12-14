@@ -15,3 +15,9 @@ For the GUI in Lua, we use the lib: MoonFLTK(https://github.com/stetre/moonfltk)
 </ul>
 <br><br>
 
+TODO:
+<ul>
+<li> Persistence(Save & Load)</li>
+<li> Export as PDF </li>
+<li> Expansion of domain</li>
+</ul>
