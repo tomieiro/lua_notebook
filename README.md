@@ -19,5 +19,5 @@ TODO:
 <ul>
 <li> Persistence(Save & Load)</li>
 <li> Export as PDF </li>
-<li> Expansion of domain</li>
+<li> Domain Expansion</li>
 </ul>
